@@ -32,4 +32,4 @@ jobs:
           repository: .
           commit_user_name: REBEL725
           commit_user_email: amaramar61806@gmail.com
-          commit_author: REBEL725 <amaramar61806@gmail.com
+          commit_author: REBEL725 <amaramar61806@gmail.com>
