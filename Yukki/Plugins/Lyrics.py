@@ -2,12 +2,11 @@ import os
 import re
 
 import lyricsgenius
-from pyrogram import Client, filters
+from pyrogram import filters
 from pyrogram.types import Message
 from youtubesearchpython import VideosSearch
 
 from Yukki import MUSIC_BOT_NAME, app
-
 
 
 @app.on_callback_query(filters.regex(pattern=r"lyrics"))
@@ -26,7 +25,7 @@ async def lyricssex(_, CallbackQuery):
         results = VideosSearch(url, limit=1)
         for result in results.result()["result"]:
             title = result["title"]
-    except Exception as e:
+    except Exception:
         return await CallbackQuery.answer(
             "Sound not found. Youtube issues.", show_alert=True
         )
@@ -36,9 +35,7 @@ async def lyricssex(_, CallbackQuery):
     y.verbose = False
     S = y.search_song(t, get_full_info=False)
     if S is None:
-        return await CallbackQuery.answer(
-            "Lyrics not found :p", show_alert=True
-        )
+        return await CallbackQuery.answer("Lyrics not found :p", show_alert=True)
     await CallbackQuery.message.delete()
     userid = CallbackQuery.from_user.id
     usr = f"[{CallbackQuery.from_user.first_name}](tg://user?id={userid})"
