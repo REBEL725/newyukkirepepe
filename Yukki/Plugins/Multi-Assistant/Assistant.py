@@ -51,7 +51,7 @@ async def awaiting_message(client, message):
             f"**Spam Detect Block On Assistant**\n\n- **Blocked User:** {message.from_user.mention}\n- **User ID:** {message.from_user.id}",
         )
         return await client.block_user(user_id)
-    await message.reply_text(f".")
+    await message.reply_text(f"ANY PROBLEM THEN CONTACT @REBEL_OP_BOLTI")
 
 
 @Client.on_message(
